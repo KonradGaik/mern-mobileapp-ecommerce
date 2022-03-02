@@ -57,7 +57,7 @@ router.put('/:id', async (req,res) => {
         },
         { new: true}
     )
-    if(!category) return res.status(400).send('the category cannot be update');
+    if(!category) return res.status(400).send('the category cannot be updated');
     res.send(category);
 })
 

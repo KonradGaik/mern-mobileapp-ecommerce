@@ -2,7 +2,6 @@ const Product = require('./models/product');
 const Order = require('./models/order');
 const Category = require('./models/category');
 const User = require('./models/user');
-
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -40,5 +39,5 @@ mongoose.connect(process.env.CONNECTION_STRING,{
 
 app.listen(3000, () => {
     console.log(api);
-    console.log('server is running now http://localhost:3300');
+    console.log('server is running now http://localhost:3000');
 });
