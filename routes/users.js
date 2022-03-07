@@ -10,20 +10,24 @@ router.get(`/`, async(req,res) =>{
     res.send(userList);
 })
 
-router.post(`/`, (req,res) => {
-   const user = new User({
-      name: req.body.name,
-      image: req.body.image,
-      countInStock: req.body.countInStock
-   })
-   user.save().then((createdUser => {
-       res.status(201).json(createdUser)
-       })).catch((err)=>{
-        res.status(500).json({
-            error: err,
-            success: false
-        })
-   });
+router.post('/', async (req,res)=>{
+    let user = new User({
+        name: res.body.name,
+        email: res.body.email,
+        passwordHash: res.body.passwordHash,
+        phone: res.body.phone,
+        street: res.body.street,
+        apartment: res.body.apartment,
+        country: res.body.country,
+        zipCode: res.body.zipCode,
+        isAdmin: res.body.isAdmin,
+        city: res.body.city
+    })
+    user = await user.save();
+
+    if(!user) return res.status(404).send('the category cannot be created!');
+    
+    res.send(user);
 })
 
 module.exports = router;

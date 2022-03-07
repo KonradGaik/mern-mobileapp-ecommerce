@@ -18,28 +18,12 @@ router.get('/:id', async(req,res) =>{
     res.status(200).send(Category);
 })
 
-// router.post(`/`, (req,res) => {
-//    const category = new Category({
-//       name: req.body.name,
-//       image: req.body.image,
-//       countInStock: req.body.countInStock
-//    })
-//    category.save().then((createdCategory => {
-//        res.status(201).json(createdCategory)
-//        })).catch((err)=>{
-//         res.status(500).json({
-//             error: err,
-//             success: false
-//         })
-//    });
-// })
-
 router.post('/', async (req,res)=>{
     let category = new Category({
         name: req.body.name,
         icon: req.body.icon,
         color: req.body.color
-    })
+    });
     category = await category.save();
 
     if(!category) return res.status(404).send('the category cannot be created!');
@@ -52,7 +36,7 @@ router.put('/:id', async (req,res) => {
         req.params.id,
         {
             name : req.body.name,
-            icon : req.body.icon || category.icon,
+            icon : req.body.icon,
             color : req.body.color
         },
         { new: true}

@@ -51,10 +51,14 @@ const productSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
-})
+});
 
 productSchema.virtual('id').get(function() {
     return this._id.thoHexString();
-})
+});
+
+productSchema.set('toJSON', {
+    virutals:true,
+});
 
 exports.Product = mongoose.model('Product', productSchema);

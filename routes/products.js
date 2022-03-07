@@ -26,8 +26,8 @@ router.get(`/:id`, async(req,res) =>{
 
 router.post(`/`, async (req,res) => {
     const category = await Category.findById(req.body.category);
-    if(!category) return res.status(400).send('Invalid category')
-   const product = new Product({
+    if(!category) return res.status(400).send('Invalid category');
+    let product = new Product({
       name: req.body.name,
       description: req.body.description,
       richDescription: req.body.richDescription,
