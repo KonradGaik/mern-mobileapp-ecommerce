@@ -24,6 +24,7 @@ const ordersRouter = require('./routes/orders');
 //MIDDLEWARE
 app.use(express.json());
 app.use(morgan('tiny'));
+app.use('public/uploads', express.static(__dirname + 'public/uploads'));
 
 app.use(`${api}/products`,productsRouter);
 app.use(`${api}/users`,usersRouter);

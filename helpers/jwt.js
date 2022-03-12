@@ -8,8 +8,9 @@ function authJwt(){
     isRevoked: isRevoked
     }).unless({
         path: [
-            {url: '/\/api\/v1/\products(.*)/' , methods: ['GET', 'OTIOPNS']},
-            {url: '/\/api\/v1/\categories(.*)/' , methods: ['GET', 'OTIOPNS']},
+            {url: '/\/api\/v1/\/uploads(.*)/' , methods: ['GET', 'OTIOPNS']},
+            {url: '/\/api\/v1\/products(.*)/' , methods: ['GET', 'OTIOPNS']},
+            {url: '/\/api\/v1\/categories(.*)/' , methods: ['GET', 'OTIOPNS']},
             `${api}/users/login`,
             `${api}/users/register`
         ]
