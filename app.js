@@ -28,7 +28,7 @@ app.use('public/uploads', express.static(__dirname + 'public/uploads'));
 
 app.use(`${api}/products`,productsRouter);
 app.use(`${api}/users`,usersRouter);
-app.use(`${api}/categoires`,categoriesRouter);
+app.use(`${api}/categories`,categoriesRouter);
 app.use(`${api}/orders`,ordersRouter);
 
 mongoose.connect(process.env.CONNECTION_STRING,{
